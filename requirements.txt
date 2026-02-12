@@ -1,0 +1,21 @@
+# Pulse Agent - Python Dependencies
+# Minimal lightweight dependencies
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# HTTP client
+requests>=2.31.0
+
+# Database drivers (install only the one you need)
+# For PostgreSQL:
+psycopg2-binary>=2.9.9
+
+# For MySQL (uncomment if using MySQL instead):
+# mysql-connector-python>=8.2.0
+
+# Docker SDK for container metrics
+docker>=7.0.0
+
+# System metrics
+psutil>=5.9.0

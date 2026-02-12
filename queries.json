@@ -1,0 +1,144 @@
+{
+  "version": "1.0",
+  "description": "Configurable SQL queries for Pulse Agent data aggregation",
+  "queries": {
+    "images_pending_current": {
+      "description": "Count of images currently pending",
+      "sql": "SELECT COUNT(*) as count FROM image_manager_image WHERE state = 'PENDING'",
+      "type": "count"
+    },
+    "images_pending_during": {
+      "description": "Count of images that were pending during the time range",
+      "sql": "SELECT COUNT(*) as count FROM image_manager_image WHERE state = 'PENDING' AND created_at >= %(start_time)s::timestamp AND created_at <= %(end_time)s::timestamp",
+      "type": "count"
+    },
+    "images_processed_current": {
+      "description": "Count of images currently processed",
+      "sql": "SELECT COUNT(*) as count FROM image_manager_image WHERE state = 'PROCESSED'",
+      "type": "count"
+    },
+    "images_processed_during": {
+      "description": "Count of images processed during the time range",
+      "sql": "SELECT COUNT(*) as count FROM image_manager_image WHERE state = 'PROCESSED' AND updated_at >= %(start_time)s::timestamp AND updated_at <= %(end_time)s::timestamp",
+      "type": "count"
+    },
+    "images_failed_current": {
+      "description": "Count of images currently failed",
+      "sql": "SELECT COUNT(*) as count FROM image_manager_image WHERE state = 'FAILED'",
+      "type": "count"
+    },
+    "images_failed_during": {
+      "description": "Count of images that failed during the time range",
+      "sql": "SELECT COUNT(*) as count FROM image_manager_image WHERE state = 'FAILED' AND updated_at >= %(start_time)s::timestamp AND updated_at <= %(end_time)s::timestamp",
+      "type": "count"
+    },
+    "images_received_current": {
+      "description": "Count of images currently received",
+      "sql": "SELECT COUNT(*) as count FROM image_manager_image",
+      "type": "count"
+    },
+    "images_received_during": {
+      "description": "Count of images received during the time range",
+      "sql": "SELECT COUNT(*) as count FROM image_manager_image WHERE created_at >= %(start_time)s::timestamp AND created_at <= %(end_time)s::timestamp",
+      "type": "count"
+    },
+    "patients_synced_current": {
+      "description": "Count of unique patients",
+      "sql": "SELECT COUNT(DISTINCT \"patientID\") as count FROM image_manager_image",
+      "type": "count"
+    },
+    "patients_not_synced": {
+      "description": "Placeholder - not applicable",
+      "sql": "SELECT 0 as count",
+      "type": "count"
+    },
+    "tasks_pending_current": {
+      "description": "Count of tasks currently pending (status 0)",
+      "sql": "SELECT COUNT(*) as count FROM job_manager_task WHERE status = 0 AND soft_delete = false",
+      "type": "count"
+    },
+    "tasks_pending_during": {
+      "description": "Count of tasks that were pending during the time range",
+      "sql": "SELECT COUNT(*) as count FROM job_manager_task WHERE status = 0 AND soft_delete = false AND created_at >= %(start_time)s::timestamp AND created_at <= %(end_time)s::timestamp",
+      "type": "count"
+    },
+    "tasks_processed_current": {
+      "description": "Count of tasks currently processed (status 2)",
+      "sql": "SELECT COUNT(*) as count FROM job_manager_task WHERE status = 2 AND soft_delete = false",
+      "type": "count"
+    },
+    "tasks_processed_during": {
+      "description": "Count of tasks processed during the time range",
+      "sql": "SELECT COUNT(*) AS count FROM job_manager_task WHERE status = 2 AND soft_delete = false AND processed_at >= %(start_time)s::timestamp AND processed_at <= %(end_time)s::timestamp",
+      "type": "count"
+    },
+    "tasks_received_current": {
+      "description": "Count of all tasks received",
+      "sql": "SELECT COUNT(*) as count FROM job_manager_task WHERE soft_delete = false",
+      "type": "count"
+    },
+    "tasks_received_during": {
+      "description": "Count of tasks received during the time range",
+      "sql": "SELECT COUNT(*) as count FROM job_manager_task WHERE soft_delete = false AND created_at >= %(start_time)s::timestamp AND created_at <= %(end_time)s::timestamp",
+      "type": "count"
+    },
+    "containers_running": {
+      "description": "Number of Docker containers in running state",
+      "metric": "containers_running",
+      "type": "docker",
+      "default": 0
+    },
+    "containers_exited": {
+      "description": "Number of Docker containers in exited state",
+      "metric": "containers_exited",
+      "type": "docker",
+      "default": 0
+    },
+    "containers_paused": {
+      "description": "Number of Docker containers in paused state",
+      "metric": "containers_paused",
+      "type": "docker",
+      "default": 0
+    },
+    "containers_total": {
+      "description": "Total number of Docker containers",
+      "metric": "containers_total",
+      "type": "docker",
+      "default": 0
+    },
+    "system_status": {
+      "description": "Overall system health status",
+      "sql": "SELECT 'healthy' as status",
+      "type": "single_value",
+      "default": "healthy"
+    },
+    "system_metrics": {
+      "description": "Collect system metrics (CPU, memory, disk, processes, services)",
+      "type": "system"
+    }
+  },
+  "aggregation_order": [
+    "images_pending_current",
+    "images_pending_during",
+    "images_processed_current",
+    "images_processed_during",
+    "images_failed_current",
+    "images_failed_during",
+    "images_received_current",
+    "images_received_during",
+    "patients_synced_current",
+    "patients_not_synced",
+    "tasks_pending_current",
+    "tasks_pending_during",
+    "tasks_processed_current",
+    "tasks_processed_during",
+    "tasks_received_current",
+    "tasks_received_during",
+    "containers_running",
+    "containers_exited",
+    "containers_paused",
+    "containers_total",
+    "system_status",
+    "system_metrics"
+  ]
+}

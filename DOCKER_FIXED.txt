@@ -1,0 +1,103 @@
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║      ✅ DOCKER PERMISSIONS - PERMANENT FIX AVAILABLE      ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+
+🚀 INSTANT FIX (No Logout Required!)
+═══════════════════════════════════════════════════════════
+
+Run this ONE command:
+
+    ./fix_docker_and_run.sh
+
+This will:
+  ✅ Fix Docker permissions automatically
+  ✅ Run Pulse Agent with Docker working
+  ✅ NO logout/login required!
+  ✅ Works immediately!
+
+
+📋 ALL DOCKER SCRIPTS AVAILABLE
+═══════════════════════════════════════════════════════════
+
+1. ./fix_docker_and_run.sh    ⭐ RECOMMENDED
+   → Fixes Docker + Runs Agent
+   → No logout needed!
+   → Use this for instant results
+
+2. ./setup_docker.sh
+   → Diagnoses Docker permission issues
+   → Provides step-by-step instructions
+   → Use if you want manual control
+
+3. ./run.sh
+   → Just runs the agent
+   → Use after Docker is permanently fixed
+
+
+🔄 FOR PERMANENT FIX ACROSS ALL SESSIONS
+═══════════════════════════════════════════════════════════
+
+After running fix_docker_and_run.sh once, do ONE of these:
+
+Option A: Logout/Login (Most Reliable)
+  1. Log out of your system
+  2. Log back in
+  3. Docker will work everywhere forever!
+
+Option B: Restart Shell (Quick)
+  Run: exec su -l $USER
+  Then: cd /tmp/pulse_agent_v2
+
+After that, you can use ./run.sh directly.
+
+
+📚 DOCUMENTATION
+═══════════════════════════════════════════════════════════
+
+  DOCKER_QUICKFIX.md    → Quick reference (1 page)
+  DOCKER_SETUP.md       → Complete guide (detailed)
+
+
+🎯 QUICK COMMANDS
+═══════════════════════════════════════════════════════════
+
+  # Fix and run NOW (recommended)
+  ./fix_docker_and_run.sh
+
+  # Check Docker access
+  docker ps
+
+  # Normal run (after fix)
+  ./run.sh
+
+  # Manual diagnosis
+  ./setup_docker.sh
+
+
+✨ WHAT YOU'LL GET
+═══════════════════════════════════════════════════════════
+
+With Docker working, your payload will include:
+
+  "docker_metrics": {
+    "system": {
+      "daemon_status": "running",
+      "version": "24.0.7",
+      "containers": { "total": 5, "running": 3 }
+    },
+    "summary": {
+      "total_containers": 5,
+      "running_containers": 3,
+      "healthy_containers": 3
+    },
+    "containers": [
+      { "name": "web-server", "image": "nginx:latest", ... }
+    ]
+  }
+
+
+═══════════════════════════════════════════════════════════
+Ready? Run:  ./fix_docker_and_run.sh
+═══════════════════════════════════════════════════════════
